@@ -3,23 +3,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Car {
-    private final int dateOfCreation;
+    private final int DATE_OF_CREATION;
     private Engine typeOfEngine;
     private int passengerCapacity;
     private double currentSpeed;
     private double maxSpeed;
     private int accelerationRate;
-    private List<CarDoor> carDoors = Arrays.asList(
-            new CarDoor(),
-            new CarDoor(),
-            new CarDoor(),
-            new CarDoor()
-    );
-    private List<CarWheel> carWheels = new ArrayList<>();
+    private List<CarDoor> carDoors = new ArrayList<>(Arrays.asList(new CarDoor(),
+            new CarDoor(), new CarDoor(), new CarDoor()));
+    private List<CarWheel> carWheels = new ArrayList<>(Arrays.asList(new CarWheel(),
+            new CarWheel(), new CarWheel(), new CarWheel()));
     private List<Passenger> passengers = new ArrayList<>();
 
     public Car(int dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
+        DATE_OF_CREATION = dateOfCreation;
     }
 
     public Car(int dateOfCreation,
@@ -27,8 +24,7 @@ public class Car {
                int passengerCapacity,
                double currentSpeed,
                double maxSpeed,
-               int accelerationRate
-    ) {
+               int accelerationRate) {
         this(dateOfCreation);
         this.typeOfEngine = typeOfEngine;
         this.passengerCapacity = passengerCapacity;
@@ -59,7 +55,6 @@ public class Car {
         if (index >= carWheels.size()) {
             throw new IndexOutOfBoundsException("The index of wheel is more than current capacity");
         }
-
         if (index < 0) {
             throw new IndexOutOfBoundsException("The index of wheel is less than 0");
         }
@@ -71,7 +66,6 @@ public class Car {
         if (index >= carDoors.size()) {
             throw new IndexOutOfBoundsException("The index of door is more than current capacity");
         }
-
         if (index < 0) {
             throw new IndexOutOfBoundsException("The index of door is less than 0");
         }
@@ -93,9 +87,7 @@ public class Car {
         if (passengers.size() == 0 || carWheels.size() < 4) {
             return 0.0;
         }
-
         double minConditionOfTire = carWheels.get(0).getConditionOfTire();
-
         for (CarWheel carWheel : carWheels) {
             if (carWheel.getConditionOfTire() < minConditionOfTire) {
                 minConditionOfTire = carWheel.getConditionOfTire();
@@ -119,7 +111,6 @@ public class Car {
         if (index >= passengers.size()) {
             throw new IndexOutOfBoundsException("The index of passenger is more than current capacity");
         }
-
         if (index < 0) {
             throw new IndexOutOfBoundsException("The index of passenger is less than 0");
         }
@@ -133,7 +124,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "dateOfCreation : " + dateOfCreation + "\n"
+        return "dateOfCreation : " + DATE_OF_CREATION + "\n"
                 + "typeOfEngine : " + typeOfEngine + "\n"
                 + "passengerCapacity : " + passengerCapacity + "\n"
                 + "numberOfPassengersRightNow : " + getNumberOfPassengersRightNow() + "\n"

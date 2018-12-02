@@ -8,7 +8,6 @@ public class CarDoor {
     }
 
     public CarDoor(boolean isOpenDoor, boolean isOpenWindow) {
-        this();
         this.isOpenDoor = isOpenDoor;
         this.isOpenWindow = isOpenWindow;
     }
@@ -30,23 +29,15 @@ public class CarDoor {
     }
 
     public void openCloseTheDoor() {
-        if (isOpenDoor) {
-            isOpenDoor = false;
-        } else {
-            isOpenDoor = true;
-        }
+        isOpenDoor = isOpenDoor ? false : true;
     }
 
     public void openCloseTheWindow() {
-        if (isOpenWindow) {
-            isOpenWindow = false;
-        } else {
-            isOpenWindow = true;
-        }
+        isOpenWindow = isOpenWindow ? false : true;
     }
 
     @Override
     public String toString() {
-        return "[" + "isOpenDoor: " + isOpenDoor + " ,isOpenTheWindow: " + isOpenWindow + "]" ;
+        return "[" + "isOpenDoor: " + isOpenDoor + " ,isOpenTheWindow: " + isOpenWindow + "]";
     }
 }

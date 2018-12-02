@@ -1,12 +1,14 @@
 public class CarWheel {
     private double conditionOfTire;
+    private final double MAX_CONDITION_OF_TIRE = 1.0;
+    private final double MIN_CONDITION_OF_TIRE = 0.0;
 
     public CarWheel() {
-        conditionOfTire = 1.0;
+        conditionOfTire = MAX_CONDITION_OF_TIRE;
     }
 
     public CarWheel(double conditionOfTire) {
-        if (conditionOfTire < 0.0 || conditionOfTire > 1.0) {
+        if (conditionOfTire < MIN_CONDITION_OF_TIRE || conditionOfTire > MAX_CONDITION_OF_TIRE) {
             throw new IllegalArgumentException("ConditionOfTire must be from diapason such as [0.0,0.1]");
         }
 
@@ -14,14 +16,14 @@ public class CarWheel {
     }
 
     public void changeWheel() {
-        conditionOfTire = 1.0;
+        conditionOfTire = MAX_CONDITION_OF_TIRE;
     }
 
     public void wipeTheTire(double coefficient) {
         conditionOfTire -= coefficient;
 
-        if (coefficient <= 0.0) {
-            conditionOfTire = 0.0;
+        if (coefficient <= MIN_CONDITION_OF_TIRE) {
+            conditionOfTire = MIN_CONDITION_OF_TIRE;
         }
     }
 
