@@ -20,6 +20,9 @@ public class CarWheel {
     }
 
     public void wipeTheTire(double coefficient) {
+        if (coefficient < MIN_CONDITION_OF_TIRE || coefficient > MAX_CONDITION_OF_TIRE) {
+            throw new IllegalArgumentException("Coefficient must be from diapason such as [0.0,0.1]");
+        }
         conditionOfTire -= coefficient;
 
         if (coefficient <= MIN_CONDITION_OF_TIRE) {
