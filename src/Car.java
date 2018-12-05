@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Car {
-    private final int DATE_OF_CREATION;
+    private final int dateOfCreation;
     private Engine typeOfEngine;
     private int passengerCapacity;
     private double currentSpeed;
@@ -16,7 +16,7 @@ public class Car {
     private List<Passenger> passengers = new ArrayList<>();
 
     public Car(int dateOfCreation) {
-        DATE_OF_CREATION = dateOfCreation;
+        this.dateOfCreation = dateOfCreation;
     }
 
     public Car(int dateOfCreation,
@@ -124,7 +124,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "dateOfCreation : " + DATE_OF_CREATION + "\n"
+        return "dateOfCreation : " + dateOfCreation + "\n"
                 + "typeOfEngine : " + typeOfEngine + "\n"
                 + "passengerCapacity : " + passengerCapacity + "\n"
                 + "numberOfPassengersRightNow : " + getNumberOfPassengersRightNow() + "\n"
